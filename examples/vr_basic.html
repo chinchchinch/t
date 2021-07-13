@@ -9,7 +9,7 @@
 	</title>
 	<style type="text/css">
 		body {
-			background-color: #000000;
+			background-color: pink;
 			margin: 0;
 			overflow: hidden;
 			font-family: Arial, Helvetica, sans-serif;
@@ -85,6 +85,19 @@
 			background: #333;
 			font-size: 15px;
 		}
+
+		#img0 {
+			top: 50%;
+    left: 50%;
+    width: 120px;
+    height: 120px;
+    margin:-60px 0 0 -60px;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+		}
+		@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
 	</style>
 </head>
 
@@ -116,11 +129,7 @@
 
 		// Setup
 		function init() {
-			var content = '<div>' +
-      '<h1>This is an H1 Element.</h1>' +
-      '<span class="large">Hello Three.js cookbook</span>' +
-      '<textarea> And this is a textarea</textarea>' +
-    '</div>';
+			var content = '<div><img id="img0" src="alpha.png"></img></div>';
 
 			camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
 
