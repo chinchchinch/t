@@ -297,7 +297,11 @@
 		if (navigator.mediaDevices.getUserMedia) {
 			navigator.mediaDevices.getUserMedia({
   audio: false,
-  video:{ exact: "environment" }
+  video:{
+        advanced: [{
+            facingMode: "environment"
+        }]
+    };
 })
 				.then(function (stream) {
 					video.srcObject = stream;
