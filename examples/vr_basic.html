@@ -97,7 +97,10 @@
     animation:spin 4s linear infinite;
 		}
 		@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
-
+		 #fond{
+			 background-color: transparent;
+			 border: 4px solid red;
+		 }
 	</style>
 </head>
 
@@ -122,6 +125,7 @@
 		<span id="controllername">DeviceOrientation Control:</span>
 		<a id="controllertype" href="#" name="controllertype">Quaternions</a>
 	</div>
+	<video id="video" autoplay="true"></video>
 
 	<script type="text/javascript">
 
@@ -129,7 +133,7 @@
 
 		// Setup
 		function init() {
-			var content = '<div><img id="img0" src="alpha.png"></img></div>';
+			var content = '<div id="fond"><img id="img0" src="alpha.png"></img></div>';
 
 			camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
 
@@ -140,7 +144,9 @@
 			cssElement.position.set(100, 100, 100);
 			scene.add(cssElement);
 
-			renderer = new THREE.CSS3DRenderer();
+			renderer = new THREE.CSS3DRenderer({ alpha: true });
+			renderer.setClearColor( 0x00ff00, 0.5 );
+
 			renderer.setSize(window.innerWidth, window.innerHeight);
 			document.body.appendChild(renderer.domElement);
 
@@ -243,6 +249,7 @@
 			renderer.setSize(window.innerWidth, window.innerHeight);
 
 		}
+
 		function createCSS3DObject(content) {
 			// convert the string to dome elements
 			var wrapper = document.createElement('div');
@@ -261,9 +268,23 @@
 			var object = new THREE.CSS3DObject(div);
 			return object;
 		}
+
 		init();
 
 		animate();
+
+		var video = document.getElementById("video");
+		
+        if (navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    video.srcObject = stream;
+                })
+                .catch(function (err) {
+                    alert("video: error !");
+                    alert(err);
+                });
+        }
 
 	</script>
 
