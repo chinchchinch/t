@@ -1,1 +1,124 @@
+<!DOCTYPE html>
+<html>
 
+<head>
+    <style>
+        * {
+            background-color: transparent;
+            font-size: 10px;
+            /* Adjust this to change the size of everything */
+        }
+
+        img {
+            margin-left: 10em;
+            height: 90vh;
+            position: absolute;
+        }
+
+        .container2 {
+            position:absolute;
+        }
+
+        #img0 {
+            display: none;
+            z-index: 100;
+            animation: shake 2s cubic-bezier(.36, .07, .19, .97) infinite;
+           
+        }
+
+        #img1 {
+            z-index: 200;
+            animation: spin 16s linear infinite alternate-reverse both;
+        }
+
+        #img2 {
+            z-index: 300;
+            
+            animation: slide-rotate-hor-top 5s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate-reverse both;
+        }
+
+        #img3 {
+            z-index: 400;
+            animation: flip-scale-up-hor 8s linear infinite alternate-reverse both;
+        }
+
+        @keyframes spin {
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes jiggle {
+            0% {
+                transform: rotate(-2deg);
+            }
+
+            50% {
+                transform: rotate(2deg);
+            }
+
+        }
+
+        @keyframes shake {
+
+            10%,
+            90% {
+                transform: translate3d(-1em, 0, 0);
+            }
+
+            20%,
+            80% {
+                transform: translate3d(2em, 0, 0);
+            }
+
+            30%,
+            50%,
+            70% {
+                transform: translate3d(-4em, 0, 0);
+            }
+
+            40%,
+            60% {
+                transform: translate3d(4em, 0, 0);
+            }
+        }
+
+        @keyframes slide-rotate-hor-top {
+            0% {
+                transform:  translateY(0) rotateX(0deg);
+                
+            }
+
+            100% {
+                transform: translateY(-15em) rotateX(-40deg);
+            }
+        }
+
+        @keyframes flip-scale-up-hor {
+            0% {
+                transform: scale(1) rotateX(0);
+            }
+
+            50% {
+                transform: scale(1.5) rotateX(-30deg);
+            }
+
+            100% {
+                transform: scale(1) rotateX(-60deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container2">
+        <img id="img0" src="alpha.png" />
+        <img id="img1" src="alpha.png" />
+        <img id="img2" src="alpha3.png" />
+        <img id="img3" src="alpha2.png" />
+    </div>
+
+</body>
+
+</html>
