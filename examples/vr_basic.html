@@ -95,6 +95,13 @@
 			width:1800px;
 			
 		}
+		#fond2 {
+			background-color: transparent;
+			border: 4px solid red;
+			height:900px;
+			width:1800px;
+			
+		}
 		#container{
 		position: absolute;
 			top: 0px;
@@ -145,15 +152,19 @@
 		// Setup
 		function init() {
 			var content = '<iframe src="panel1.html" id="fond"></iframe>';
-
+			var content2 = '<iframe src="panel2.html" id="fond2"></iframe>';
 			camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
 
 			// Render three.js world
 
 			scene = new THREE.Scene();
 			var cssElement = createCSS3DObject(content);
+			// nombre du milieu = hauteur
 			cssElement.position.set(500, 250, 500);
 			scene.add(cssElement);
+			var cssElement2 = createCSS3DObject(content);
+			cssElement2.position.set(0, 250, 0);
+			scene.add(cssElement2);
 
 			renderer = new THREE.CSS3DRenderer({ alpha: true });
 			renderer.setClearColor(0x00ff00, 0.5);
