@@ -18,8 +18,29 @@
         .container2 {
             position:absolute;
         }
+        
+        
+       
 
-        #epine1 {
+        #img1 {
+            z-index: 200;
+            animation: spin 16s linear infinite alternate-reverse both;
+        }
+
+        #img2 {
+            z-index: 300;
+            
+            animation: slide-rotate-hor-top 5s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate-reverse both;
+        }
+
+        #img3 {
+            z-index: 400;
+            /*animation: flip-scale-up-hor 8s linear infinite alternate-reverse both;*/
+            animation: wobble 2s cubic-bezier(0.87, 0, 0.13, 1) 0s infinite alternate-reverse forwards;
+        }
+
+
+        #img4 {
             animation: swing-top-fwd 5s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite;
             z-index: 100;
          
@@ -145,7 +166,7 @@
 
 <body>
     <div class="container2">
-        <img id="epine1" src="epine_1.png" />
+        <img id="img4" src="epine_1.png" />
         <img id="img0" src="alpha.png" />
         <img id="img1" src="alpha.png" />
         <img id="img2" src="alpha3.png" />
