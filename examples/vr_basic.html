@@ -88,14 +88,15 @@
 
 		
 
-		#fond {
+		#panel1 {
 			background-color: transparent;
 			border: 4px solid black;
 			height:900px;
 			width:1800px;
 			
 		}
-		#fond2 {
+		#panel2 {
+			/* display: none;*/
 			background-color: transparent;
 			/* border: none;*/
 			border: 4px solid red;
@@ -152,8 +153,8 @@
 
 		// Setup
 		function init() {
-			var content = '<iframe src="panel1.html" id="fond"></iframe>';
-			var content2 = '<iframe src="panel2.html" id="fond2"></iframe>';
+			var content = '<iframe src="panel1.html" id="panel1"></iframe>';
+			var content2 = '<iframe src="panel2.html" id="panel2"></iframe>';
 			camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
 
 			// Render three.js world
@@ -165,6 +166,7 @@
 			scene.add(cssElement);
 			var cssElement2 = createCSS3DObject(content2);
 			cssElement2.position.set(400, 250, 400);
+			
 			scene.add(cssElement2);
 
 			renderer = new THREE.CSS3DRenderer({ alpha: true });
