@@ -143,6 +143,11 @@
 			border: lightblue;
 			display: inline-block;
 		}
+		.pTest {
+			border: 10px solid greenyellow;
+			height: 900px;
+			width: 900px;
+		}
 	</style>
 </head>
 
@@ -190,7 +195,7 @@
 
 				},
 				{
-					content: '<iframe src="panel3.html" id="panel3"></iframe>',
+					content: '<iframe src="panel3.html" class="pTest"></iframe>',
 					// nombre du milieu = hauteur
 					position: [0, 250, 0],
 
@@ -214,9 +219,9 @@
 			// Put coordinates indicator
 			for (let x = 0; x < 1000; i += 100) {
 				for (let y = 0; y < 1000; y += 10) {
-					var cssElement = createCSS3DObject('<p class="coord">'+str(x)+","+str(y)+'</p>');
+					var cssElement = createCSS3DObject(CONFIG[2].content);
 
-					cssElement.position.set(x, CONFIG[0].position[1], y);
+					cssElement.position.set(x, CONFIG[2].position[1], y);
 					scene.add(cssElement);
 
 				}
