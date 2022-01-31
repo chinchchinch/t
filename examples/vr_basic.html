@@ -9,7 +9,7 @@
 	</title>
 	<style type="text/css">
 		body {
-			background-color: darkblue;
+			background-color: rgb(165, 50, 50);
 			margin: 0;
 			overflow: hidden;
 			font-family: Arial, Helvetica, sans-serif;
@@ -185,19 +185,19 @@
 				{
 					content: '<iframe src="panel1.html" id="panel1"></iframe>',
 					// nombre du milieu = hauteur
-					position: [800, 250, 800],
+					position: [0, 0, 500],
 
 				},
 				{
 					content: '<iframe src="panel2.html" id="panel2"></iframe>',
 					// nombre du milieu = hauteur
-					position: [400, 250, 400],
+					position: [500, 0, -500],
 
 				},
 				{
 					content: '<iframe src="panel3.html" class="pTest"></iframe>',
 					// nombre du milieu = hauteur
-					position: [0, 250, 0],
+					position: [-1000, 0, 500],
 
 				}
 			];
@@ -208,23 +208,12 @@
 			scene = new THREE.Scene();
 
 			// Set up the panels according to the configuration
-			/*for (let i = 0; i < CONFIG.length; i++) {
+			for (let i = 0; i < CONFIG.length; i++) {
 				const element = array[i];
 				var cssElement = createCSS3DObject(CONFIG[i].content);
 
 				cssElement.position.set(CONFIG[i].position[0], CONFIG[i].position[1], CONFIG[i].position[2]);
 				scene.add(cssElement);
-			}*/
-
-			// Put coordinates indicator
-			for (let x = 0; x < 1000; x += 100) {
-				for (let y = 0; y < 1000; y += 10) {
-					var cssElement = createCSS3DObject(CONFIG[2].content);
-
-					cssElement.position.set(x, CONFIG[2].position[1], y);
-					scene.add(cssElement);
-
-				}
 			}
 
 			renderer = new THREE.CSS3DRenderer({ alpha: true });
@@ -341,8 +330,8 @@
 
 			div.className = "css3d";
 
-			// create a CSS3Dobject and return it.
-			var object = new THREE.CSS3DObject(div);
+			// create a SPRITE and return it.
+			var object = new THREE.CSS3DSprite(div);
 			return object;
 		}
 
