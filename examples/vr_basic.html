@@ -86,40 +86,52 @@
 			font-size: 15px;
 		}
 
-		
+
 
 		#panel1 {
 			background-color: transparent;
 			border: 4px solid white;
-			height:900px;
-			width:1800px;
-			
+			height: 900px;
+			width: 1800px;
+
 		}
+
 		#panel2 {
 			/* display: none;*/
 			background-color: transparent;
 			/* border: none;*/
 			border: 4px solid red;
-			height:900px;
-			width:1800px;
-			
+			height: 900px;
+			width: 1800px;
+
 		}
-		#container{
-		position: absolute;
+
+		#container {
+			position: absolute;
 			top: 0px;
 			bottom: 0px;
 			z-index: 200;
 		}
-		#video{
+
+		#video {
 			position: absolute;
 			top: 0px;
 			bottom: 0px;
 			z-index: 100;
 		}
-		.css3d{
+
+		.css3d {
 			margin: 0px;
 			padding: 0px;
 			border: 4px solid yellow;
+		}
+		.coord {
+			font-family: sans-serif;
+			color: white;
+			font-weight: bold;
+			font-size: small;
+			border: lightblue;
+			display: inline-block;
 		}
 	</style>
 </head>
@@ -153,21 +165,52 @@
 
 		// Setup
 		function init() {
-			var content = '<iframe src="panel1.html" id="panel1"></iframe>';
-			var content2 = '<iframe src="panel2.html" id="panel2"></iframe>';
+
+			const CONFIG = [
+				{
+					content: '<iframe src="panel1.html" id="panel1"></iframe>',
+					// nombre du milieu = hauteur
+					position: [800, 250, 800],
+
+				},
+				{
+					content: '<iframe src="panel2.html" id="panel2"></iframe>',
+					// nombre du milieu = hauteur
+					position: [400, 250, 400],
+
+				},
+				{
+					content: '<iframe src="panel3.html" id="panel3"></iframe>',
+					// nombre du milieu = hauteur
+					position: [0, 250, 0],
+
+				}
+			];
 			camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 1000);
 
 			// Render three.js world
 
 			scene = new THREE.Scene();
-			var cssElement = createCSS3DObject(content);
-			// nombre du milieu = hauteur
-			cssElement.position.set(800, 250, 800);
-			scene.add(cssElement);
-			var cssElement2 = createCSS3DObject(content2);
-			cssElement2.position.set(400, 250, 400);
-			
-			scene.add(cssElement2);
+
+			// Set up the panels according to the configuration
+			for (let i = 0; i < CONFIG.length; i++) {
+				const element = array[i];
+				var cssElement = createCSS3DObject(CONFIG[i].content);
+
+				cssElement.position.set(CONFIG[i].position[0], CONFIG[i].position[1], CONFIG[i].position[2]);
+				scene.add(cssElement);
+			}
+
+			// Put coordinates indicator
+			for (let x = 0; x < 1000; i += 100) {
+				for (let y = 0; y < 1000; y += 10) {
+					var cssElement = createCSS3DObject('<p class="coord">'+str(x)+","+str(y)+'</p>');
+
+					cssElement.position.set(x, CONFIG[0].position[1], y);
+					scene.add(cssElement);
+
+				}
+			}
 
 			renderer = new THREE.CSS3DRenderer({ alpha: true });
 			renderer.setClearColor(0x00ff00, 0.5);
@@ -296,12 +339,12 @@
 
 		if (navigator.mediaDevices.getUserMedia) {
 			navigator.mediaDevices.getUserMedia({
-  audio: false,
-  video:{
-	  "facingMode": "environment"
+				audio: false,
+				video: {
+					"facingMode": "environment"
 
-    }
-})
+				}
+			})
 				.then(function (stream) {
 					video.srcObject = stream;
 				})
@@ -309,7 +352,7 @@
 					alert("video: error !");
 					alert(err);
 				});
-			
+
 			video.play();
 		}
 
