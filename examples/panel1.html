@@ -31,7 +31,7 @@
             animation: spin 16s linear infinite alternate-reverse both;
         }
 
-        #img2 {
+        #losange {
             z-index: 300;
             
             animation: slide-rotate-hor-top 5s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate-reverse both;
@@ -42,6 +42,25 @@
             /*animation: flip-scale-up-hor 8s linear infinite alternate-reverse both;*/
             animation: wobble 2s cubic-bezier(0.87, 0, 0.13, 1) 0s infinite alternate-reverse forwards;
         }
+        #rose {
+            z-index: 300;
+            animation: rotate-scale-up 0.65s infinite both;
+        }
+
+        @keyframes rotate-scale-up {
+            0% {
+             -webkit-transform: scale(1) rotateZ(0);
+            transform: scale(1) rotateZ(0);
+  }
+  50% {
+    -webkit-transform: scale(2) rotateZ(180deg);
+            transform: scale(2) rotateZ(180deg);
+  }
+  100% {
+    -webkit-transform: scale(1) rotateZ(360deg);
+            transform: scale(1) rotateZ(360deg);
+  }
+}
 
         @keyframes spin {
 
@@ -142,9 +161,9 @@
 
 <body>
     <div class="container2">
-        <img id="img0" src="alpha.png" />
         <img id="img1" src="alpha.png" />
-        <img id="img2" src="alpha3.png" />
+        <img id="rose" src="rose.png" />
+        <img id="losange" src="losange.png" />
         <img id="img3" src="alpha2.png" />
     </div>
 

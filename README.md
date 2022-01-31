@@ -6,6 +6,27 @@
 
 Aller à examples et cliquer sur
 
+# Pour changer l'emplacement, la taille et le bord colore des panels, modifier examples/vr_basics.html
+
+# Generateur d'animation :
+
+- <https://animista.net/>
+- <https://webcode.tools/generators/css/keyframe-animation>
+
+## Copier les lignes:
+
+animation: blahblah ;
+
+et
+
+@keyframes mon-nom-de-keyframe {}
+
+# Pour entrer le mode editeur de code, aller à la racine du repository et appuyer sur la touche .
+
+
+
+
+---------------------------------------
 threeVR
 =======
 
