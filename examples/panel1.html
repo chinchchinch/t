@@ -15,33 +15,15 @@
             position: absolute;
         }
 
-        .container2 {
+        .container {
             position:absolute;
-        }
-
-        #img0 {
-            display: none;
-            z-index: 100;
-            animation: shake 2s cubic-bezier(.36, .07, .19, .97) infinite;
-           
-        }
-
-        #img1 {
-            z-index: 200;
-            animation: spin 16s linear infinite alternate-reverse both;
         }
 
         #losange {
             z-index: 300;
-            
             animation: slide-rotate-hor-top 5s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate-reverse both;
         }
 
-        #img3 {
-            z-index: 400;
-            /*animation: flip-scale-up-hor 8s linear infinite alternate-reverse both;*/
-            animation: wobble 2s cubic-bezier(0.87, 0, 0.13, 1) 0s infinite alternate-reverse forwards;
-        }
         #rose {
             z-index: 300;
             animation: rotate-scale-up 30.5s infinite both;
@@ -49,21 +31,17 @@
 
         @keyframes rotate-scale-up {
             0% {
-             -webkit-transform: scale(1) rotateZ(0);
             transform: scale(1) rotateZ(0);
-  }
-  50% {
-    -webkit-transform: scale(2) rotateZ(180deg);
+            }
+            50% {
             transform: scale(2) rotateZ(180deg);
-  }
-  100% {
-    -webkit-transform: scale(1) rotateZ(360deg);
+            }
+            100% {
             transform: scale(1) rotateZ(360deg);
-  }
-}
+            }
+        }
 
         @keyframes spin {
-
             100% {
                 transform: rotate(360deg);
             }
@@ -107,7 +85,6 @@
         @keyframes slide-rotate-hor-top {
             0% {
                 transform:  translateY(0) rotateX(0deg);
-                
             }
 
             100% {
@@ -130,41 +107,43 @@
         }
         
         @keyframes wobble {
-  0%,
-  100% {
-    transform: translateX(0%);
-    transform-origin: 50% 50%;
-  }
+            0%,
+            100% {
+                transform: translateX(0%);
+                transform-origin: 50% 50%;
+            }
 
-  15% {
-    transform: translateX(-30px) rotate(-6deg);
-  }
+            15% {
+                transform: translateX(-30px) rotate(-6deg);
+            }
 
-  30% {
-    transform: translateX(15px) rotate(6deg);
-  }
+            30% {
+                transform: translateX(15px) rotate(6deg);
+            }
 
-  45% {
-    transform: translateX(-15px) rotate(-3.6deg);
-  }
+            45% {
+                transform: translateX(-15px) rotate(-3.6deg);
+            }
 
-  60% {
-    transform: translateX(9px) rotate(2.4deg);
-  }
+            60% {
+                transform: translateX(9px) rotate(2.4deg);
+            }
 
-  75% {
-    transform: translateX(-6px) rotate(-1.2deg);
-  }
-}
+            75% {
+                transform: translateX(-6px) rotate(-1.2deg);
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div class="container2">
-        <img id="img1" src="alpha.png" />
+    <div class="container">
         <img id="rose" src="rose.png" />
+        
+    </div>
+
+    <div class="container">
         <img id="losange" src="losange.png" />
-        <img id="img3" src="alpha2.png" />
     </div>
 
 </body>
