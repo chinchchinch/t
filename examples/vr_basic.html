@@ -235,10 +235,10 @@
 			scene = new THREE.Scene();
 
 			// Set up the panels according to the configuration
-			for (let i = 0; i < CONFIG.length; i++) {
-				var cssElement = createCSS3DObject(CONFIG[i].content);
+			for (let i = 0; i < circle_config.length; i++) {
+				var cssElement = createCSS3DObject(circle_config[i].content);
 
-				cssElement.position.set(CONFIG[i].position[0], CONFIG[i].position[1], CONFIG[i].position[2]);
+				cssElement.position.set(circle_config[i].position[0], circle_config[i].position[1], circle_config[i].position[2]);
 				scene.add(cssElement);
 			}
 
